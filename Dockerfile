@@ -12,6 +12,8 @@ RUN   apt update \
       build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev \
    && useradd -m -d /home/container container
 
+RUN echo "container:x:997:997::/home/container:/bin/sh" >> /etc/passwd
+
 USER container
 ENV  USER=container HOME=/home/container
 WORKDIR /home/container
